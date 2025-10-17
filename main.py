@@ -68,7 +68,8 @@ def generate_cover_letter():
     - Address the hiring manager by "Hiring Manager"
     - Highlight relevant skills and achievements
     - Match tone and keywords of the job description
-    - Do not simply restate the contents of the resume; summarize if necessary
+    - Not simply restate the contents of the resume; summarize if necessary
+    - Not restate any numbers already mentioned in the resume
     - Provide the full name, city of residence, email, and phone number of the applicant on seperate lines in the header
     - Not include the date
     --- Resume ---
@@ -122,6 +123,22 @@ def save_as_pdf():
         return
 
     try:
+        # assume first 4 lines of the text are header
+        lines = text.splitlines()
+        header_lines = []
+        body_lines = []
+
+        # stop header at "Dear Hiring Manager,"
+        for i, line in enumerate(lines):
+            if line.strip() == "Dear Hiring Manager,":
+                header_lines = lines[:i]
+                body_lines = lines[i:]
+                break
+        else:
+            # If no dear hiring manager found, default to first 4 lines as header
+            header_lines = lines[:4]
+            body_lines = lines[4:]
+
         doc = SimpleDocTemplate(
             file_path,
             pagesize=LETTER,
@@ -134,8 +151,12 @@ def save_as_pdf():
         styles = getSampleStyleSheet()
         story = []
 
-        # Split into paragraphs by blank lines
-        paragraphs = text.split("\n\n")
+        for hline in header_lines:
+            story.append(Paragraph(hline.strip(), styles["Normal"]))
+        story.append(Spacer(1, 0.3 * inch))
+
+        # Add body paragraphs (split by blank lines)
+        paragraphs = "\n".join(body_lines).split("\n\n")
         for para in paragraphs:
             story.append(Paragraph(para.strip(), styles["Normal"]))
             story.append(Spacer(1, 0.2 * inch))
@@ -143,6 +164,7 @@ def save_as_pdf():
         doc.build(story)
         messagebox.showinfo("Saved", f"Cover letter saved as PDF:\n{file_path}")
         status_var.set("Saved PDF cover letter")
+
     except Exception as e:
         messagebox.showerror("Error", f"Failed to save PDF:\n{e}")
 
