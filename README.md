@@ -34,6 +34,11 @@ A desktop application that generates tailored cover letters by combining a userâ
 - **PyInstaller** â€“ Application bundling
 
 ---
+Usage:
+<img width="809" height="639" alt="image" src="https://github.com/user-attachments/assets/c0343d31-50ba-4415-a720-6ccc23475b65" />
+<img width="1702" height="1107" alt="image" src="https://github.com/user-attachments/assets/e0a2ed7e-66e8-4ef7-afd5-d72b0ef993f6" />
+<img width="1153" height="969" alt="image" src="https://github.com/user-attachments/assets/2cb02b19-5813-48c7-9983-c2f1e1105c68" />
+
 
 ## Setup Instructions
 
