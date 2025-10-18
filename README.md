@@ -45,7 +45,7 @@ Usage:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/ai-cover-letter-generator.git
+git clone https://github.com/willzhou109/Cover-Letter-Generator.git
 cd ai-cover-letter-generator
 
 ### 2. Create and Activate Virtual Environment
