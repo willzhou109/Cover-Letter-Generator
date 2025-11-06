@@ -1,6 +1,6 @@
 # AI Cover Letter Generator
 
-A desktop application that generates tailored cover letters by combining a user’s resume and a job description using OpenAI’s GPT-4 model. The app features a simple GUI, supports multiple file formats, and exports cover letters in DOCX and PDF formats. It is packaged as a standalone macOS application for easy distribution.
+A desktop application that generates tailored cover letters by combining a user’s resume and a job description using OpenAI’s GPT-4 model. The app features a simple GUI, supports multiple file formats, and exports cover letters in DOCX and PDF formats. It is packaged as a standalone macOS application for easy distribution. So far, it has several users and has sped up the application process of 1,000+ job applications, saving hours of time.
 
 ---
 
